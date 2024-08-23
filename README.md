@@ -18,7 +18,7 @@ xdp firewall是一款永久免费的XDP防火墙，专注未流量攻击对抗�
 #### 四、安装步骤
 支持Linux x86 64位系统(内核大于5.3)，保证可以上网，以 **root权限** 运行下面命令：
 
-    1、 wget http://59.110.1.135/hixdp
+    1、 wget http://101.42.31.94/hixdp
     2、 chmod +x ./hixdp
     3、 ./hixdp
 
@@ -33,13 +33,13 @@ xdp firewall是一款永久免费的XDP防火墙，专注未流量攻击对抗�
 
 #### 六、免费演示地址
 
-实战地址 [http://59.110.1.135/hixdp.html](http://59.110.1.135/hixdp.html)
+实战地址 [http://101.42.31.94/hixdp.html](http://101.42.31.94/hixdp.html)
 
 #### 七、付费演示地址
 
 单机版永远免费，但开放源码、分布式集中管控、技术支持、功能增加等要收费。请用大屏电脑观看，首次加载大屏组件需要10秒：
-攻击态势大屏 [http://59.110.1.135/atkmap.html](http://59.110.1.135/atkmap.html)
-集中管控大屏 [http://59.110.1.135/center.html](http://59.110.1.135/center.html)
+攻击态势大屏 [http://101.42.31.94/atkmap.html](http://101.42.31.94/atkmap.html)
+集中管控大屏 [http://101.42.31.94/center.html](http://101.42.31.94/center.html)
 
 #### 八、源码部署请加微信号httpwaf
 
