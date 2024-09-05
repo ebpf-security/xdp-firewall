@@ -1,50 +1,70 @@
 # xdp firewall
+eBPF-XDP is an open source XDP firewall application built using eBPF, Mainly used for  filter IP and DDOS ​​defense, we makes BPF programs easier to build.
+[![Build Status](https://drone.grafana.net/api/badges/grafana/beyla/status.svg?ref=refs/heads/main)](https://ebpf-security.github.io/navihtml/ebpf-xdp.html)
 
-#### 一 、介绍
-xdp firewall是一款永久免费的XDP防火墙，专注未流量攻击对抗如抗DDOS等，也可以开源。
+## Requirements
+XDP is a part of the upstream Linux kernel, and enables users to inject packet processing programs into the kernel, that will be executed for each arriving packet, before the kernel does any other processing on the data, It runs on/requires Linux Kernel >= 4.18 such as the following platforms:
+* Ubuntu 20.10+
+* Fedora 31+
+* RHEL 8.2+
+* Debian 11+
+* Rocky Linux 8.5+
+* ...
 
-#### 二、承诺和不承诺
-承诺：为了保证服务器安全，除首次安装，任何时候绝不联网，大量实战稳定可靠。
+## Building & Running
+```console
+# Ubuntu
+sudo apt-get install -y make clang llvm libelf-dev libelf-dev
 
-不承诺：无论任何原因引发的任何问题，都不负任何责任；请务必在测试环境完美演练后，再谨慎部署到生产环境。
+# RHEL
+sudo yum install -y  make clang llvm libelf-dev elfutils-libelf-devel
 
-注意：WEB管理9998端口禁止向公网开放，或者严格设置IP白名单访问权限。
+$ make && make install 
 
-#### 三 、主要功能。
-    1、自动记录各种流量峰值，生成DDOS防御参数，大幅降低DDOS攻击流量防御费用。
-    2、可以应用层WEB应用防火墙等联动精确阻断CC/DDOS。
-    3、用AI技术分析危险流量，异常流量/危险IP行为等将报警。
+$ ./build/xdpfw 
+  Loaded XDP program in SKB/generic mode.
+  cpu=128 MAX_CPUS=256
+  Packets Allowed: 2 | Packets Dropped: 0
+```
+Loading eBPF program  requires root privileges 
 
-#### 四、安装步骤
-支持Linux x86 64位系统(内核大于5.3)，保证可以上网，以 **root权限** 运行下面命令：
 
-    1、 wget http://101.42.31.94/hixdp
-    2、 chmod +x ./hixdp
-    3、 ./hixdp
+## eBPF-XDP+
+**eBPF-XDP+** is a paid version and completely open source too, main features are:
+- Web interfaces
+- Drop incoming packets based on their IP address using XDP
+- Anti-DDOS 
+- Pure-C eBPF implementation, IPv4 and IPv6 support
 
-首次安装下载大约半分钟，出现System is running.....代表安装成功，可以WEB管理口9998（防火墙允许）登录进去。
+**Free Trial**
 
-#### 五、运行停止卸载
-启动运行:  ./hixdp         后台模式运行:   ./hixdp daemon
+```console
+$ wget https://ebpf-security.github.io/ebpf-xdp
+$ chmod +x ./ebpf-xdp 
+$ ./ebpf-xdp 
+  1. Kill all of  processes...........................
+  2. Init  ok.........................................
+  3. System is running................................
+```
 
-停止运行:  ./hixdp stop    卸载 :   rm  /hiproc/ -rf
+After loading is complete, Open a browser to http://<host>:9998/ to access the Web UI.
+Full Trial version available at [https://ebpf-security.github.io/navihtml/ebpf-xdp.html](https://ebpf-security.github.io/navihtml/ebpf-xdp.html)
 
-默认没加开机启动，请自行把hixdp加入开机启动程序。
+How to stop?
 
-#### 六、免费演示地址
+```console
+$ ./ebpf-xdp stop
+```
 
-实战地址 [http://101.42.31.94:9998/ok.html](http://101.42.31.94:9998/ok.html)
+<a href="https://github.com/ebpf-security/ebpf-security.github.io/blob/main/img/1.png"><img height="500" width="820" src="https://github.com/ebpf-security/ebpf-security.github.io/blob/main/img/1.png"></img></a>
+&nbsp;
 
-#### 七、付费演示地址
 
-单机版永远免费，但开放源码、分布式集中管控、技术支持、功能增加等要收费。请用大屏电脑观看，首次加载大屏组件需要10秒：
-攻击态势大屏 [http://101.42.31.94/atkmap.html](http://101.42.31.94/atkmap.html)
-集中管控大屏 [http://101.42.31.94/center.html](http://101.42.31.94/center.html)
+## Contact Us
+* Mail to `ebpf-sec@hotmail.com`
+Before moving on, please consider giving us a GitHub star ⭐️. Thank you!
 
-#### 八、源码部署请加微信号httpwaf
+## License
+This project is licensed under the terms of the
+[MIT license](/LICENSE).
 
-![](https://gitee.com/httpwaf/httpwaf/raw/master/img/wechat.png)
-
-#### 九、来一张首页图片
-
-![](https://gitee.com/httpwaf/httpwaf/raw/master/img/home.png)
