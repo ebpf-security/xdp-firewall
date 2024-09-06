@@ -61,7 +61,7 @@ $ ./ebpf-xdp stop
 
 
 ## Contact Us
-* Mail to `ebpf-sec@hotmail.com`
+* Mail to `openhfw@outlook.com`
 Before moving on, please consider giving us a GitHub star ⭐️. Thank you!
 
 ## License
